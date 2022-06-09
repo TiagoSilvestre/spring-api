@@ -5,7 +5,7 @@ import java.util.Optional;
 import javax.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import com.system.demo_sys.models.UserModel;
+import com.system.demo_sys.model.UserEntity;
 import com.system.demo_sys.repository.UserRepository;
 
 @Service
@@ -17,15 +17,15 @@ public class UserService {
 
   // Se algo der errado com a transaçao ele faz um rollback
   @Transactional
-  public UserModel save(UserModel userModel){
-    return userRepository.save(userModel);
+  public UserEntity save(UserEntity userEntity) {
+    return userRepository.save(userEntity);
   }
 
-  public List<UserModel> findAll() {
+  public List<UserEntity> findAll() {
     return userRepository.findAll();
   }
 
-  public Optional<UserModel> findById(Integer id) {
+  public Optional<UserEntity> findById(Integer id) {
     return userRepository.findById(id);
   }
 }
